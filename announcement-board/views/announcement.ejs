@@ -1,0 +1,21 @@
+<a href="/">← Назад</a>
+
+<h1><%= ann.title %></h1>
+
+<p><b><%= ann.price %> грн</b></p>
+<p><%= ann.description %></p>
+<p>Контакти: <%= ann.contactInfo %></p>
+
+<button id="delete">Видалити</button>
+
+<script>
+document.getElementById("delete").addEventListener("click", async () => {
+  if (!confirm("Видалити?")) return;
+
+  await fetch("/announcements/<%= ann.id %>", {
+    method: "DELETE"
+  });
+
+  window.location.href = "/";
+});
+</script>

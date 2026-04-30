@@ -1,0 +1,14 @@
+{
+  "name": "announcement-board",
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "prisma": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "node app.js",
+    "prisma": "prisma studio"
+  }
+}

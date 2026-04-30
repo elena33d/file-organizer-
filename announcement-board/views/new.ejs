@@ -1,0 +1,24 @@
+<h1>Створити оголошення</h1>
+
+<form method="POST">
+  <input name="title" placeholder="Назва" value="<%= data.title || '' %>">
+  <div class="error"><%= errors.title %></div>
+
+  <textarea name="description"><%= data.description || '' %></textarea>
+  <div class="error"><%= errors.description %></div>
+
+  <input name="price" type="number" placeholder="Ціна" value="<%= data.price || '' %>">
+  <div class="error"><%= errors.price %></div>
+
+  <select name="category">
+    <option value="sale">Продаж</option>
+    <option value="service">Послуги</option>
+    <option value="job">Робота</option>
+    <option value="other">Інше</option>
+  </select>
+
+  <input name="contactInfo" placeholder="Контакти" value="<%= data.contactInfo || '' %>">
+  <div class="error"><%= errors.contactInfo %></div>
+
+  <button>Створити</button>
+</form>

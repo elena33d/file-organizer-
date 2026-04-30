@@ -1,0 +1,34 @@
+<h1>Оголошення</h1>
+
+<form method="GET">
+  <input name="search" placeholder="Шукати..." value="<%= search %>">
+  <button>Знайти</button>
+
+  <select name="sort">
+    <option value="newest" <%= sort === "newest" ? "selected" : "" %>>Новіші</option>
+    <option value="oldest" <%= sort === "oldest" ? "selected" : "" %>>Старіші</option>
+  </select>
+
+  <button formaction="/announcements">Додати</button>
+</form>
+
+<% if (announcements.length === 0) { %>
+  <p>Оголошень не знайдено</p>
+<% } %>
+
+<% announcements.forEach(a => { %>
+  <div class="card">
+    <h3><%= a.title %></h3>
+    <p><%= a.description.substring(0, 100) %>...</p>
+    <p><b><%= a.price %> грн</b></p>
+    <a href="/announcements/<%= a.id %>">Детальніше</a>
+  </div>
+<% }) %>
+
+<div>
+  <% for(let i=1;i<=totalPages;i++){ %>
+    <a href="/?page=<%= i %>&search=<%= search %>&sort=<%= sort %>">
+      <%= i %>
+    </a>
+  <% } %>
+</div>
